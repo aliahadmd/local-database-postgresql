@@ -1,8 +1,11 @@
 # Database Configuration
+
 ```
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=postgres
 DB_NAME=postgres
+
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"
 ```

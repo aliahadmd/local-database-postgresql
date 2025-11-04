@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:16.10
     container_name: postgres_db
     environment:
       POSTGRES_USER: postgres
@@ -11,6 +11,8 @@ services:
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
+    networks:
+      - postgres-network
 
   adminer:
     image: adminer:latest
@@ -22,3 +24,9 @@ services:
     restart: unless-stopped
     depends_on:
       - postgres
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge
